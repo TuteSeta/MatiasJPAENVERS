@@ -14,7 +14,7 @@ public class Main {
         try {
             em.getTransaction().begin();
 
-            Factura factura1 = new Factura();
+           /* Factura factura1 = new Factura();
             factura1.setNumero(12);
             factura1.setFecha("10/08/2024");
 
@@ -58,8 +58,12 @@ public class Main {
             factura1.getDetalles().add(detalle2);
             detalle2.setFactura(factura1);
 
-            factura1.setTotal(120);
-            em.persist(factura1);
+            factura1.setTotal(120); */
+
+            Factura factura1 = em.find(Factura.class, 1L);
+            factura1.setNumero(85);
+
+            em.merge(factura1);
             em.flush();
             em.getTransaction().commit();
         }catch (Exception e){

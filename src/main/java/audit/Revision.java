@@ -20,10 +20,11 @@ public class Revision implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "revision_seq")
     @SequenceGenerator(name = "revision_seq",sequenceName = "rbac.seq_revision_id")
     @RevisionNumber
+    @Column(name = "Id")
     private int id;
 
-    @Column(name = "REVISION_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     @RevisionTimestamp
+    @Column(name = "REVISION_DATE")
     private Date date;
 }
